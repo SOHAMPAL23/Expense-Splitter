@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Splitter</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Splitter</h1>
+        
+        <div>
+            <p>Enter Participant Name:</p>
+            <input type="text" id="participantName" placeholder="Participant Name">
+            <button onclick="addParticipant()">Add Participant</button>
+        </div>
+        
+        <div>
+            <p>Enter Expenses:</p>
+            <input type="number" id="participantExpense" placeholder="Expense">
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+        
+        <button onclick="calculateBalances()">Calculate</button>
+        <button onclick="resetData()">Reset</button>
+        
+        <div id="result">
+        </div>
+    </div>
+    <script src="project.js"></script>
+</body>
+</html>
+
+
+
