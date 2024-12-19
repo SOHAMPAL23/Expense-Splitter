@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const signupForm = document.getElementById('signup-form');
-    const loginForm = document.getElementById('login-form');
     const logoutButton = document.getElementById('logout');
     const expenseForm = document.getElementById('expense-form');
     const expenseList = document.getElementById('expense-list');
@@ -13,45 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
     let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
 
-    // Handle Sign Up
-    if (signupForm) {
-        signupForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const username = document.getElementById('signup-username').value;
-            const password = document.getElementById('signup-password').value;
-
-            if (users.some(user => user.email === email)) {
-                alert('Email already exists');
-            } else {
-                const newUser = { email, username, password };
-                users.push(newUser);
-                localStorage.setItem('users', JSON.stringify(users));
-                alert('Sign up successful. You can now log in.');
-                signupForm.reset();
-            }
-        });
-    }
-
-    // Handle Login
-    if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-
-            const user = users.find(user => user.email === email && user.password === password);
-            if (user) {
-                currentUser = user;
-                localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                window.location.href = 'expense.html';
-            } else {
-                alert('Invalid email or password');
-            }
-        });
-    }
-
-    // Handle Logout
+    // Logout button working 
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             currentUser = null;
@@ -60,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add Expense
+    // Add Expense of the user
     if (expenseForm) {
         expenseForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -77,12 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Generate a random ID
+    // Generate a random ID for the transactions
     function generateID() {
         return Math.floor(Math.random() * 1000000000);
     }
 
-    // Add Expense to DOM
+    // Add Expense to array of objects
     function addExpenseToDOM(expense) {
         const item = document.createElement('li');
         const user = users.find(user => user.email === expense.email);
@@ -94,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expenseList.appendChild(item);
     }
 
-    // Update Total and Split
+    // splitting and total 
     function updateTotalAndSplit() {
         const total = expenses.reduce((acc, expense) => acc + expense.amount, 0).toFixed(2);
         totalAmount.innerText = `₹${total}`;
@@ -111,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize App
+    // welcome page message for the user 
     function init() {
         if (currentUser) {
             if (welcomeMessage) {
