@@ -1,5 +1,5 @@
 # Expense-Splitter
-Are you tired of loosing money by month end and dont know where does the money go, whom did you lend money in your recent Goa trip.
+😤Are you tired of loosing money by month end and dont know where does the money go, whom did you lend money in your recent Goa trip.
 ![Screenshot 2024-12-18 232149](https://github.com/user-attachments/assets/41440b4c-5dd6-4ec0-8e32-9068fc2632c5)
 
 😎Expense Splitter is a website where you can track all your expenses. The expenses💵💰 that you have made in trip, Whom did you lend money to??🧐, How much money do I have left in savings 👛? etc...
