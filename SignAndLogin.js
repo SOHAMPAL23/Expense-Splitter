@@ -5,22 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const body = document.body;
 
-    // Fade in the container
     setTimeout(() => {
         container.style.opacity = '1';
         container.style.transform = 'translateY(0)';
     }, 100);
 
-    // Dark Mode Toggle
+
     toggleIcon.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
     });
 
-    // Retrieve users and current user from local storage
     let users = JSON.parse(localStorage.getItem('users')) || [];
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 
-    // Handle Sign Up
     if (signupForm) {
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -41,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle Login
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -59,14 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Prevent back navigation
     window.addEventListener('popstate', () => {
         window.history.pushState(null, null, window.location.href);
         alert('You cannot navigate back. Please logout first.');
         window.location.href = 'expense.html'; // Redirect back to the expense page
     });
 
-    // Disable arrow key navigation and Alt + arrow combinations
     document.addEventListener('keydown', (e) => {
         if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
             e.preventDefault();
