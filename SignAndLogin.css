@@ -3,13 +3,13 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f4f4f4, #d9e2ec);  /* Light gradient for normal mode */
+    background: linear-gradient(135deg, #f4f4f4, #d9e2ec);  
     color: #333;
     transition: background 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    background: linear-gradient(135deg, #121212, #1e1e1e);  /* Dark gradient for dark mode */
+    background: linear-gradient(135deg, #121212, #1e1e1e);  
     color: #f0f0f0;
 }
 
@@ -112,7 +112,7 @@ body.dark-mode #toggle-icon {
     color: #f0f0f0;
 }
 
-/* Animations */
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -124,7 +124,6 @@ body.dark-mode #toggle-icon {
     }
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
     .container {
         margin: 20px;
