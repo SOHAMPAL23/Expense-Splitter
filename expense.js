@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
-    let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-
-    // Logout button working 
+    let expenses = JSON.parse(localStorage.getItem('expenses')) || []; 
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             currentUser = null;
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add Expense of the user
     if (expenseForm) {
         expenseForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -37,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Generate a random ID for the transactions
+ 
     function generateID() {
         return Math.floor(Math.random() * 1000000000);
     }
 
-    // Add Expense to array of objects
     function addExpenseToDOM(expense) {
         const item = document.createElement('li');
         const user = users.find(user => user.email === expense.email);
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         expenseList.appendChild(item);
     }
 
-    // splitting and total 
     function updateTotalAndSplit() {
         const total = expenses.reduce((acc, expense) => acc + expense.amount, 0).toFixed(2);
         totalAmount.innerText = `₹${total}`;
@@ -70,8 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             splitList.appendChild(li);
         });
     }
-
-    // welcome page message for the user 
+ 
     function init() {
         if (currentUser) {
             if (welcomeMessage) {
